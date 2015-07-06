@@ -1,0 +1,45 @@
+<head>
+  <title>meteorddpserver</title>
+</head>
+
+
+
+<Template name="enterChat">
+    <h3>Famous Framework DDP example (server)!</h3>
+    We publish a counter and chat collection. Entering text will add to chat collection and increment the counter.
+    <br><br>
+    Hitting the DEL button will remove the chat item and decrement the count by one. These changes can be seen in the Famous Framework
+    app which is monitoring all collection changes via DDP.
+    <br><br>
+    To test updating a collection... Enter new text in the field and hit the Update button of the line to update.
+    <br><button class="btn btn-primary" id="rbtn">Reset Database</button>
+
+    <br><br><hr>
+
+    <div>
+        <input type="text" id="tfield" style="width: 250px;border-radius: 10px; border: solid 1px blue" placeholder="Enter note or update text">
+        <button class="btn btn-primary" id="ebtn">Add</button>
+
+    </div>
+
+    <hr>
+    {{> items}}
+</Template>
+
+<Template name="items">
+    <div>
+        {{#each items}}
+        {{>chatItemContent}}
+        {{/each}}
+    </div>
+
+</Template>
+
+<Template name="chatItemContent">
+    <div class="task" style="border-bottom: 2px solid #000000">
+        <li class="list-group-item" style="background-color: lightblue;line-height: 75px">
+            {{text}}<div class=" pull-right"><button  class="btn  btn-primary" style="font-size: large;" id="ibtn">Del</button>
+            <button class="btn btn-primary" id="ubtn">Update</button></div>
+        </li>
+    </div>
+</Template>
